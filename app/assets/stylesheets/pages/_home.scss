@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+
+.cocktail-background-home {
+  background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), asset-url('cocktails.jpeg');
+  background-size: cover;
+  height:100vh;
+  text-align: center;
+
+  img {
+    opacity: 1;
+    margin: 8px;
+    margin-bottom: 176px;
+  }
+
+ a{
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 4px;
+    transition: 1s;
+    box-shadow: 4px 4px 10px black;
+ }
+
+ a:hover {
+  color: grey;
+ }
+}
+
+.content{
+display: flex;
+justify-content: center;
+}
+

@@ -1,0 +1,18 @@
+
+<div class="cocktail-background">
+
+</div>
+<div class="content">
+  <%= image_tag "logo.png", { id: "logo-main"} %>
+</div>
+<div class="cards">
+<% @cocktails.each do |cocktail| %>
+<% image = ["cocktail-placeholder.jpeg", "mojito.jpeg", "watermelon.jpeg", "espresso.jpeg", "white-cocktail.jpeg"].sample %>
+<div class="card">
+  <%= link_to cocktail_path(cocktail) do %>
+  <%= image_tag image, { class: "cocktail"} %>
+  <% end %>
+  <h4><%=cocktail.name.downcase %></h4>
+  <%= link_to "...",  cocktail_path(cocktail)%>
+</div>
+<% end %>

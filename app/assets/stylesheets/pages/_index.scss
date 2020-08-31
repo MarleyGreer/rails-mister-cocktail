@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+.cocktail-background {
+  background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), asset-url('cocktails.jpeg');
+  background-size: cover;
+  height: 400px;
+
+  img {
+    opacity: 1;
+  }
+}
