@@ -1,0 +1,42 @@
+  <% @sum = 0 %>
+  <% @cocktail.reviews.each do |review| %>
+  <% @sum = @sum += review.rating %>
+  <% end %>
+  <% if @sum == 0 %>
+  <% @average = 0 %>
+  <% else %>
+  <% @average = @sum / @cocktail.reviews.count %>
+  <% end %>
+
+
+<h1 class="header"><%= @cocktail.name %></h1>
+<div class="show-container">
+<div class="ingredients">
+<h2>Description:</h2>
+<p><%=@cocktail.description %></p>
+<h2>Ingredients:</h2>
+<% @cocktail.doses.each do |dose| %>
+<div class="ingredient"><p>
+  <%= dose.description.capitalize %> - <em><%= dose.ingredient.name %></em></p>
+  <%= link_to dose_path(dose), method: :delete, class: "delete", data: { confirm: "Click OK to delete  #{dose.ingredient.name.upcase} from the #{dose.cocktail.name.upcase}" } do %>
+    <%= fa_icon "minus-square" %>
+  </div>
+<% end %>
+
+<% end %>
+<div class="links">
+<%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), role: "button", class: "btn btn-dark" %>
+<%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Click OK to delete #{@cocktail.name.upcase}" }, role: "button", class: "btn btn-dark" %>
+</div>
+<h2>Overall Rating:</h2>
+<p class="star-average"><%= (fa_icon "star") * @average %> <%= @average %>/5</p>
+<h2>Reviews:</h2>
+<div class="links">
+<%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-dark"  %>
+<%= link_to "View Reviews...", cocktail_reviews_path(@cocktail), class: "btn btn-dark"  %>
+</div>
+</div>
+<div class="cocktail-image-show">
+</div>
+</div>
+

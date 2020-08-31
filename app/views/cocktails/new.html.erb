@@ -1,0 +1,11 @@
+<div class="cocktail-background">
+
+</div>
+<h1 class="header">Add A New Cocktail</h1>
+<div class="container w-50 mb-3">
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name, label: 'Cocktail Name'%>
+    <%= f.input :description, label: 'Please Enter A Description Of Your Cocktail'%>
+    <%= f.button :submit, class: "btn-dark search-cocktails mb-3"%>
+  <% end %>
+</div>

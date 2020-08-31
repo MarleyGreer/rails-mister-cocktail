@@ -13,27 +13,26 @@
             <% else %>
             <li class="nav-item">
             <% end %>
-            <%= link_to "Main Menu", cocktails_path, class: "nav-link" %>
+            <%= link_to "|Main Menu|", cocktails_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+          <% if action_name == "new" %>
+          <li class="nav-item active">
+            <% else %>
+            <li class="nav-item">
+            <% end %>
+            <%= link_to "|Create A New Cocktail|", new_cocktail_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              |All Cocktails|
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-menu" aria-labelledby="navbarCocktails">
+              <% Cocktail.all.each do |cocktail| %>
+              <%= link_to cocktail.name, cocktail_path(cocktail), class: "dropdown-item"%>
+              <% end %>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
         </ul>
-        <div class="form-inline">
+        <div class="form-inline search-cocktails">
         <%= form_tag cocktails_path, class:"form-inline my-2 my-lg-0", method: :get do %>
         <%= text_field_tag :query,
           params[:query],

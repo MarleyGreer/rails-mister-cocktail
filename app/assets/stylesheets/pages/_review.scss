@@ -1,0 +1,35 @@
+.reviews{
+  h2 {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 4px;
+  }
+
+  p {
+    font-family: 'Quicksand';
+  }
+
+  h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px
+  }
+
+  a{
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 4px;
+  }
+}
+
+
+.review-box-bottom{
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: black;
+    transition: 1s;
+  }
+
+  a:hover {
+    color: grey;
+  }
+}

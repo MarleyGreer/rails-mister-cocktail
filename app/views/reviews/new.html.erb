@@ -1,0 +1,13 @@
+<div class="cocktail-background">
+
+</div>
+<h1 class="header">Add A Review On <%= @cocktail.name %></h1>
+<div class="container w-50 mb-3">
+  <%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :title, label: 'Review Title'%>
+  <%= f.input :user, label: 'What Is Your Name?'  %>
+  <%= f.input :content, label: 'Give Us Your Review' %>
+  <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+  <%= f.submit "Add Review", class: 'btn btn-dark' %>
+  <% end %>
+</div>

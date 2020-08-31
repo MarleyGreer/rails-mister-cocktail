@@ -1,0 +1,34 @@
+<div class="cocktail-background">
+
+</div>
+<h1 class="header"><%= @cocktail.name %> Reviews</h1>
+
+<div class="container w-50 mb-3 reviews">
+  <h2><%= @cocktail.reviews.count %> Reviews</h2>
+
+  <% @sum = 0 %>
+  <% @cocktail.reviews.each do |review| %>
+  <% @sum = @sum += review.rating %>
+  <% end %>
+  <% if @sum == 0 %>
+  <% @average = 0 %>
+  <% else %>
+  <% @average = @sum / @cocktail.reviews.count %>
+  <% end %>
+
+  <h2>Average <%= @average %>/5 <%= (fa_icon "star") * @average %></h2>
+  <% @cocktail.reviews.each do |review| %>
+  <hr>
+  <h3><strong><%= review.title %></strong></h3>
+  <p><%= review.content %></p>
+  <p><strong><%= review.user %></strong></h3>
+  <div class="review-box-bottom">
+  <p><%= (fa_icon "star") * review.rating %></p>
+  <%= link_to review_path(review), method: :delete, class: "delete", data: { confirm: "Click OK to delete  #{review.user}'s review" } do %>
+    <%= fa_icon "minus-square" %>
+  </div>
+  <% end %>
+  <% end %>
+<%= link_to "Back", cocktail_path(@cocktail), class: "btn btn-dark"  %>
+  <%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-dark"  %>
+</div>

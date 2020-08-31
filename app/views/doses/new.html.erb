@@ -1,1 +1,15 @@
-<div></div>
+<div class="cocktail-background">
+
+</div>
+<h1 class="header">Add Ingredients</h1>
+<div class="container w-50 mb-3">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
+  <%= f.input :description, label: 'How Much?', error: 'Description cannot be blank!' %>
+  <%= f.submit "Add Ingredient", class: 'btn btn-dark' %>
+  <% end %>
+</div>
+
+
+
+
