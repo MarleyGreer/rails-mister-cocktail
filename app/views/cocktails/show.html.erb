@@ -42,39 +42,14 @@
 </div>
 </div>
 
+<div class="col-12 col-lg-7">
 <% if @cocktail.photos.count < 4 %>
  <div class="cocktail-image-show-container" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[0].key %>')">
-    </div>
-
-<% else %>
-<div class="col-12 col-lg-7">
-  <div id="carouselExampleIndicators" class="carousel slide cocktail-image-show-container" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-  </ol>
-  <div class="carousel-inner">
-      <div class="carousel-item active cocktail-image-show" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[0].key %>')">
-    </div>
-      <div class="carousel-item cocktail-image-show" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[1].key %>')">
-    </div>
-    <div class="carousel-item cocktail-image-show" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[2].key %>')">
-    </div>
-    <div class="carousel-item cocktail-image-show" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[3].key %>')">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
   </div>
 </div>
+
+<% else %>
+  <%= render "./partials/carousel.html.erb" %>
   <% end %>
 
   </div>
