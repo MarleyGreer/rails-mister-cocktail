@@ -6,6 +6,7 @@
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name, label: 'Cocktail Name'%>
     <%= f.input :description, label: 'Please Enter A Description Of Your Cocktail'%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn-dark search-cocktails mb-3"%>
   <% end %>
 </div>

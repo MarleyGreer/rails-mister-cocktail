@@ -1,18 +1,34 @@
 
-<div class="cocktail-background">
-
-</div>
+<div class="cocktail-background"></div>
 <div class="content">
   <%= image_tag "logo.png", { id: "logo-main"} %>
 </div>
-<div class="cards">
-<% @cocktails.each do |cocktail| %>
-<% image = ["cocktail-placeholder.jpeg", "mojito.jpeg", "watermelon.jpeg", "espresso.jpeg", "white-cocktail.jpeg"].sample %>
-<div class="card">
-  <%= link_to cocktail_path(cocktail) do %>
-  <%= image_tag image, { class: "cocktail"} %>
+<div class="content">
+  <% if @cocktails.count >= 2 %>
+    <p>View <strong><%= @cocktails.count %></strong> Available Cocktails!</p>
+  <% elsif @cocktails.count == 1 %>
+    <p>View <strong><%= @cocktails.count %></strong> Matching Cocktail!</p>
+  <% else %>
+    <p>Sorry, No Cocktails Match Your Search...Please Try Again Or Create Your Own!</p>
   <% end %>
-  <h4><%=cocktail.name.downcase %></h4>
-  <%= link_to "...",  cocktail_path(cocktail)%>
 </div>
-<% end %>
+<div class="content">
+  <%= link_to "Create A New Cocktail", new_cocktail_path, class: "black-button mb-4" %>
+</div>
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+  <div class="card">
+      <%= link_to cocktail_path(cocktail) do %>
+      <%= cl_image_tag cocktail.photos[0].key, { class: "cocktail"} %>
+    <% end %>
+    <h4><%=cocktail.name.downcase %></h4>
+    <%= link_to "...",  cocktail_path(cocktail), class: "dots" %>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+

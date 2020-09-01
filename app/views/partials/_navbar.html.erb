@@ -9,37 +9,42 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if action_name == "index" %>
-          <li class="nav-item active">
-            <% else %>
+            <li class="nav-item active">
+          <% else %>
             <li class="nav-item">
-            <% end %>
+          <% end %>
             <%= link_to "|Main Menu|", cocktails_path, class: "nav-link" %>
-          </li>
+            </li>
           <% if action_name == "new" %>
-          <li class="nav-item active">
-            <% else %>
+            <li class="nav-item active">
+          <% else %>
             <li class="nav-item">
-            <% end %>
+          <% end %>
             <%= link_to "|Create A New Cocktail|", new_cocktail_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              |All Cocktails|
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarCocktails">
-              <% Cocktail.all.each do |cocktail| %>
-              <%= link_to cocktail.name, cocktail_path(cocktail), class: "dropdown-item"%>
-              <% end %>
-            </div>
-        </ul>
-        <div class="form-inline search-cocktails">
-        <%= form_tag cocktails_path, class:"form-inline my-2 my-lg-0", method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search Cocktails..."%>
-        <%= submit_tag "Search", class: "btn btn-dark" %>
-      <% end %>
-        </form>
-      </div>
+            </li>
+          <% if action_name == "show" %>
+            <li class="nav-item dropdown active">
+          <% else %>
+            <li class="nav-item dropdown">
+          <% end %>
+
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            |All Cocktails|
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarCocktails">
+            <% Cocktail.all.each do |cocktail| %>
+            <%= link_to cocktail.name, cocktail_path(cocktail), class: "dropdown-item"%>
+            <% end %>
+          </div>
+          </ul>
+          <div class="form-inline search-cocktails">
+            <%= form_tag cocktails_path, class:"form-inline my-2 my-lg-0", method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search Cocktails..."%>
+            <%= submit_tag "Search", class: "btn btn-dark" %>
+          <% end %>
+        </div>
+      </form>
     </nav>
