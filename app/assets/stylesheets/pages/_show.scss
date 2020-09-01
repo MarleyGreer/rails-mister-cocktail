@@ -21,6 +21,15 @@
     margin: 4px;
   }
 
+  button {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 4px;
+    text-align: right;
+    font-size: 11px;
+    text-align: center;
+    margin: 4px;
+  }
+
   p {
     font-family: 'Quicksand';
 
@@ -48,7 +57,7 @@
 }
 
 .cocktail-image-show{
-  height:100vh;
+  height:70vh;
   width: 100%;
   background-size: cover;
   margin-right: 8px;
@@ -58,7 +67,7 @@
 }
 
 .cocktail-image-show-container{
-  height:100vh;
+  height: 70vh;
   width: 100%;
   background-size: cover;
   margin-right: 8px;
@@ -78,4 +87,24 @@
 .star-average{
   letter-spacing: 10px;
   font-family: 'Bebas Neue', cursive;
+}
+
+.modal-title{
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 4px;
+  font-size: 24px;
+}
+
+.carousel-cocktails {
+  background:l inear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7));
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.carousel-inner {
+  height: 100%;
 }

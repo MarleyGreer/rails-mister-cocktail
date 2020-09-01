@@ -14,6 +14,17 @@
 <h1 class="header"><%= @cocktail.name %></h1>
 <div class="container">
 <div class="row">
+
+  <div class="col-12 col-lg-7">
+<% if @cocktail.photos.count < 4 %>
+ <div class="cocktail-image-show-container" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[0].key %>')">
+  </div>
+
+<% else %>
+  <%= render "./partials/carousel.html.erb" %>
+  <% end %>
+</div>
+
 <div class="col-12 col-lg-5">
 <div class="ingredients">
 <h2>Description:</h2>
@@ -29,8 +40,12 @@
 <% end %>
 
 <div class="links">
-<%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), role: "button", class: "btn btn-dark" %>
+
 <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Click OK to delete #{@cocktail.name.upcase}" }, role: "button", class: "btn btn-dark" %>
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+  Add Ingredients
+</button>
+
 </div>
 <h2>Overall Rating:</h2>
 <p class="star-average"><%= (fa_icon "star") * @average %> <%= @average %>/5</p>
@@ -41,19 +56,7 @@
 </div>
 </div>
 </div>
-
-<div class="col-12 col-lg-7">
-<% if @cocktail.photos.count < 4 %>
- <div class="cocktail-image-show-container" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[0].key %>')">
-  </div>
-
-<% else %>
-  <%= render "./partials/carousel.html.erb" %>
-  <% end %>
-</div>
-
   </div>
 </div>
 
-
-
+<%= render "./partials/modal.html.erb" %>
