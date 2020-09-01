@@ -46,11 +46,11 @@
 <% if @cocktail.photos.count < 4 %>
  <div class="cocktail-image-show-container" style="background-image: linear-gradient(315deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7)), url('<%= cl_image_path @cocktail.photos[0].key %>')">
   </div>
-</div>
 
 <% else %>
   <%= render "./partials/carousel.html.erb" %>
   <% end %>
+</div>
 
   </div>
 </div>
