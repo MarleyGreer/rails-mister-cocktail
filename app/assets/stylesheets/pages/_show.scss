@@ -5,7 +5,7 @@
 }
 
 .ingredients{
-  width: 30%;
+
 
   h2{
     font-family: 'Bebas Neue', cursive;
@@ -17,6 +17,8 @@
     letter-spacing: 4px;
     text-align: right;
     font-size: 11px;
+    text-align: center;
+    margin: 4px;
   }
 
   p {
@@ -42,6 +44,7 @@
 .links{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .cocktail-image-show{
@@ -56,7 +59,6 @@
 
 .cocktail-image-show-container{
   height:100vh;
-  width: 60%;
   background-size: cover;
   margin-right: 8px;
   box-shadow:
