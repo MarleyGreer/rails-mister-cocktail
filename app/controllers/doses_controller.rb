@@ -9,9 +9,10 @@ class DosesController < ApplicationController
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose.cocktail = @cocktail
     if @dose.save
-      redirect_to cocktail_path(@cocktail)
+      redirect_to cocktail_path(@cocktail), notice: "Ingredient Added Successfully To #{@cocktail.name} Recipe!"
     else
-      render :new
+      @ingredient = @dose.ingredient.name
+      redirect_to cocktail_path(@cocktail), alert: "#{@cocktail.name} Recipe Already Includes #{@ingredient}. Your Selection Has Not Been Added!"
     end
   end
 

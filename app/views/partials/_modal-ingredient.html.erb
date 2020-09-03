@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add An Ingredient</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add An Ingredient To <%= @cocktail.name %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,7 +10,7 @@
       <div class="modal-body">
         <div class="container w-50 mb-3">
         <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :ingredient_id, collection: Ingredient.all %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, input_html: {class: 'select2'} %>
         <%= f.input :description, label: 'How Much?', error: 'Description cannot be blank!' %>
         <%= f.submit "Add", class: 'btn btn-dark' %>
         <% end %>
@@ -19,3 +19,6 @@
    </div>
   </div>
 </div>
+
+
+

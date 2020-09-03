@@ -3,10 +3,10 @@ class ReviewsController < ApplicationController
     @cocktail = Cocktail.find(params[:cocktail_id])
   end
 
-  def new
-    @cocktail = Cocktail.find(params[:cocktail_id])
-    @review = Review.new
-  end
+  # def new
+  #   @cocktail = Cocktail.find(params[:cocktail_id])
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new(review_params)

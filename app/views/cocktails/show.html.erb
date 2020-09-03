@@ -51,12 +51,21 @@
 <p class="star-average"><%= (fa_icon "star") * @average %> <%= @average %>/5</p>
 <h2>Reviews:</h2>
 <div class="links">
-<%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: "btn btn-dark"  %>
-<%= link_to "View Reviews...", cocktail_reviews_path(@cocktail), class: "btn btn-dark"  %>
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addReview">
+  Add Review
+</button>
+
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#viewReview">
+  View Reviews
+</button>
 </div>
 </div>
 </div>
   </div>
 </div>
 
-<%= render "./partials/modal.html.erb" %>
+<%= render "./partials/modal-ingredient.html.erb" %>
+<%= render "./partials/modal-add-review.html.erb" %>
+<%= render "./partials/modal-view-reviews.html.erb" %>
+<%= render "./partials/flashes.html.erb" %>
+

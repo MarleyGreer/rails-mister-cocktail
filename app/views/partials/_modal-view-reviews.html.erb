@@ -1,0 +1,47 @@
+<div class="modal fade" id="viewReview" tabindex="-1" role="dialog" aria-labelledby="viewReviewLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewReviewLabel"><%= @cocktail.name %> Reviews </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container w-50 mb-3">
+          <h2>Average <%= @average %>/5 <%= (fa_icon "star") * @average %></h2>
+          <% if @cocktail.reviews.count == 0 %>
+            <p>No Reviews Yet!<p>
+            <% elsif @cocktail.reviews.count < 4 %>
+          <% @cocktail.reviews.each do |review| %>
+           <hr>
+          <h3><strong><%= review.title %></strong></h3>
+          <p><%= review.content %></p>
+          <p><strong><%= review.user %></strong></h3>
+          <div class="review-box-bottom">
+          <p><%= (fa_icon "star") * review.rating %></p>
+          <%= link_to review_path(review), method: :delete, class: "delete", data: { confirm: "Click OK to delete  #{review.user}'s review" } do %>
+         <%= fa_icon "minus-square" %>
+        </div>
+        <% end %>
+          <% end %>
+          <% else %>
+            <% @cocktail.reviews[-3..-1].each do |review| %>
+          <hr>
+          <h3><strong><%= review.title %></strong></h3>
+          <p><%= review.content %></p>
+          <p><strong><%= review.user %></strong></h3>
+          <div class="review-box-bottom">
+          <p><%= (fa_icon "star") * review.rating %></p>
+          <%= link_to review_path(review), method: :delete, class: "delete", data: { confirm: "Click OK to delete  #{review.user}'s review" } do %>
+         <%= fa_icon "minus-square" %>
+   </div>
+   <% end %>
+        <% end %>
+  <% end %>
+        <%= link_to "View All", cocktail_reviews_path(@cocktail), class: "btn btn-dark"  %>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
