@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :cocktail
   validates_presence_of :title, :user, :content, :rating
-  validates :user, uniqueness: true
+  validates :cocktail, uniqueness: { scope: :user, message: ": You can only add one review per cocktail!" }
   validates :user, length: { minimum: 2 }
   validates :content, length: { minimum: 20 }
   validates :content, length: { maximum: 500 }
